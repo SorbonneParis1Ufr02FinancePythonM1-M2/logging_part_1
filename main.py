@@ -1,17 +1,15 @@
-from helpers_logging import logging_status
+from helpers_logging import log_message
 from repository import get_data
 from view import display_results
 
 
 def main():
-    if logging_status:
-        print("Begin program")
+    log_message("Begin program")
     data = get_data()
 
     display_results(data)
 
-    if logging_status:
-        print("End program")
+    log_message("End program")
 
 
 if __name__ == '__main__':
