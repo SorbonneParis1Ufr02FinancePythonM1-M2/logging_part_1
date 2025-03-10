@@ -1,12 +1,14 @@
 import pandas as pd
 
+from helpers_logging import logging_status
+
 
 def get_data():
-    """get fake data"""
-
     tickers = ["ALF1", "BET2", "GAM3", "DEL4", "EPS5"]
-    print(f"Run Query | funds={tickers}")
+    if logging_status:
+        print(f"Run Query | funds={tickers}")
 
+    # Creating fake fund data
     data = {
         "Ticker": ["ALF1", "BET2", "GAM3", "DEL4", "EPS5"],
         "Fund Name": [
@@ -24,5 +26,6 @@ def get_data():
         "Inception Year": [2010, 2015, 2012, 2008, 2017],
     }
     df = pd.DataFrame(data)
-    print(f"Query results | data.shape={df.shape}")
+    if logging_status:
+        print(f"Query results | data.shape={df.shape}")
     return df
