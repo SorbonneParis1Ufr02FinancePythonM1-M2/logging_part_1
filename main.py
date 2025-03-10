@@ -4,12 +4,12 @@ from view import display_results
 
 
 def main():
-    log_message("Begin program")
+    log_message("Begin program", level="INFO")
     data = get_data()
 
     display_results(data)
 
-    log_message("End program")
+    log_message("End program", level="INFO")
 
 
 if __name__ == '__main__':
