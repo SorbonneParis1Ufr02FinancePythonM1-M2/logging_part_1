@@ -1,5 +1,8 @@
-# level = CRITICAL, ERROR, WARNING, INFO, DEBUG
+from datetime import datetime
+
+# logging_level = CRITICAL, ERROR, WARNING, INFO, DEBUG
 logging_level = "DEBUG"
+log_file_path = "app.log"
 
 
 def log_message(message, level):
@@ -7,6 +10,9 @@ def log_message(message, level):
 
     if levels.get(level, "DEBUG") >= levels[logging_level]:
         print(f"{level} | {message}")
+
+        with open(log_file_path, "a") as log_file:
+            log_file.write(f"{datetime.now()} | {level} | {message}\n")
 
 
 if __name__ == "__main__":
